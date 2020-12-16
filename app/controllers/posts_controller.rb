@@ -10,6 +10,16 @@ class PostsController < ApplicationController
     def new
   
     end
+
+    def update
+        @post =Post.find(params[:id])
+        @post.update(post_params)
+    redirect_to @post
+    end
+
+    def edit
+        @post =Post.find(params[:id])
+    end
   
     def create
       @post = Post.new(post_params)
