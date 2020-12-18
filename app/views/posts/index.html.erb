@@ -1,5 +1,8 @@
 <h1>All posts<h1>
-<h3><%= link_to "New Post", new_post_path(@post)%>  <%= link_to "Home", home_path%><h3>
+<h3><%= link_to "New Post", new_post_path(@post)%> <%= link_to "Home", home_path%><h3>
 <%@post.each do |p|%>
-<h3><%=p.title%> <%=p.body%> <%= link_to "edit", edit_post_path(p)%> <%= link_to "show",post_path(p)%> <%= link_to "delete",post_path(p), method: :delete%> <h3>
+<h3><%=p.title%> <i><%=p.body%></i> 
+<%=link_to "edit", edit_post_path(p)%> 
+<%=link_to "show",post_path(p)%> 
+<%=link_to "delete",post_path(p), method: :delete%> <h3>
 <%end%>
