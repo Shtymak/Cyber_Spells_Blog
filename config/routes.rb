@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :pins
   root to:'pages#index',as:'home'
   get 'posts/new',as:'post_new'
   
