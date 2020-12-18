@@ -1,15 +1,5 @@
 <h2>New Post<h2>
 <h3><%= link_to "All Posts",  posts_path %> <%= link_to "Home", home_path%><h3>
 <%=form_for :post, url: posts_path do |f|%>
-<p>
-Name<br>
-<%=f.text_field:title%>
-</p>
-
-Text<br>
-<%=f.text_area:body%>
-</p>
-<p>
-<%=f.submit "Create"%>
-<p>
+<%= render 'form',f:f %>
 <%end%>
