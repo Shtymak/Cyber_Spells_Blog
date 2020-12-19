@@ -1,0 +1,5 @@
+<%= form_for :comment, url: post_comments_path(@post) do |f|%>
+<h4>Username: <%=f.text_field :user_name%></h4>
+<h4>Comment: <%=f.text_field :body%></h4>
+<p><%= f.submit "Comment"%></p>
+<%end%>

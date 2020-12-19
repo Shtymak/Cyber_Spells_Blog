@@ -10,3 +10,9 @@
 <%=image_tag image, width:200%>
 <%end%>
 </div>
+<div id="comments">
+ADD COMMENT:
+<%= render 'comments/form'%>
+Comments:
+<%=render @comments %>
+</div>
