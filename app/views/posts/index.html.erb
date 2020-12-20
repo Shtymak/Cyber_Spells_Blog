@@ -1,9 +1,6 @@
 <h1>All posts<h1>
-<h3><%= link_to "New Post", new_post_path(@post)%> <%= link_to "Home", home_path%><h3>
-<%@post.each do |p|%>
-<h3>Title: <%=p.title%></h3> <h4>Theme: <i><%=p.body%></i></h4> 
-<p><%= image_tag p.photo, width:160 %></p>
-<h3><%=link_to "Edit", p %> 
-<%=link_to "show", p%> 
-<%=link_to "delete", p, method: :delete%> </h3>
-<%end%>
+<h3><%= link_to "All Posts",  posts_path %> 
+<%= link_to "Home", home_path%> 
+<div class="row">
+<%= render @posts%>
+</div>

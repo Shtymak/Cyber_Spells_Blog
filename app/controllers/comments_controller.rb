@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
     def create
         params[:comment][:post_id] = params[:post_id]
 comment = Comment.create(comment_params) 
-redirect_to post_path(comment.post_id)+ '#comments'
+redirect_to post_path(comment.post_id)+ '#comments_'+comment.id.to_s
     end
 
     private 

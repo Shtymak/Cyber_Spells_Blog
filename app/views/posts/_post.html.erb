@@ -1,0 +1,10 @@
+<div class="col-6">
+  <b>
+    <%= link_to post.title, post_path(post) %>
+  </b>
+  <p>
+  <%= image_tag post.photo, width:300 %>
+  </p>
+  <%= link_to "edit", edit_post_path(post)%>
+  <%= link_to "delete", post_path(post), method: :delete%>
+</div>
