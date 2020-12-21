@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to:'pages#index',as:'home'
   get 'posts/new',as:'post_new'
   
