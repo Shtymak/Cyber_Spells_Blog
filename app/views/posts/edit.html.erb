@@ -1,5 +1,4 @@
 <h2>Edit<h2>
-<h3><%= link_to "All Posts",  posts_path %>  <%= link_to "Home", home_path%><h3>
 
 <%=form_for :post, url: post_path, method: :patch do |f|%>
 <%= render 'form',f:f %>

@@ -9,11 +9,11 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <p class="h5 my-0 me-md-auto fw-normal">CyberSpellsBlog</p>
+      <p class="h5 my-0 me-md-auto fw-normal"><%= link_to 'Cyber Spells Blog', home_path, :class => "btn btn-light"%> <%= link_to 'All posts', posts_path, :class => "btn btn-light"%> </p>
       <nav class="my-2 my-md-0 me-md-3">
         <div class="row-3">
           <% if !(user_signed_in?) %>
-          <span class="p-2 text-dark"><%= link_to "Sign up", user_session_path, :class => 'btn btn-warning' %></span>
+          <span class="p-2 text-dark"><%= link_to "Sign in", user_session_path, :class => 'btn btn-warning' %></span>
           <span class="p-2 text-dark"><%= link_to "Reg", new_user_registration_path, :class => 'btn btn-warning' %></span>
           <% end %>
           <%if user_signed_in?%>

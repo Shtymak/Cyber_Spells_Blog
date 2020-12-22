@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+    before_action :authenticate_user!, except: %i[index show]
     def index
         @posts = Post.all
     end
@@ -34,8 +35,7 @@ class PostsController < ApplicationController
         @post.save
         redirect_to @post
     end
-  
-    def edit; end
+
 
     private 
 
