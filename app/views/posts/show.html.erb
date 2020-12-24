@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
       <% if @post.username.eql? current_user.email %>
 <%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-outline-warning"%> 
-<%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger"%></h3>
+<%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger" if @post.user_id == current_user.id%></h3>
 <%end%>
 <%end%>
 <h1><%=@post.title%></h1>

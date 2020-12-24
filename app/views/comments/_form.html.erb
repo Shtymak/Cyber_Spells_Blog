@@ -1,9 +1,5 @@
 <%= form_for :comment, url: post_comments_path(@post) do |f|%>
 <div class="mb-3">
-  Username:
-  <%= f.text_field :user_name, class:"form-control" %>
-</div>
-<div class="mb-3">
   Comment:
   <%= f.text_field :body, class:"form-control" %>
 </div>
