@@ -17,6 +17,7 @@
           <span class="p-2 text-dark"><%= link_to "Reg", new_user_registration_path, :class => 'btn btn-warning' %></span>
           <% end %>
           <%if user_signed_in?%>
+          <%=current_user.email%>
           <span class="p-2 text-dark"><%= link_to "Create a new post", new_post_path(@post), :class => 'btn btn-warning' %></span>
             <span class="p-2 text-dark"><%= link_to "Exit", destroy_user_session_path, method: :delete, :class => 'btn btn-warning' %></span>
           <% end %>

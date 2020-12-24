@@ -1,5 +1,5 @@
 <div id="comment_<%=comment.id%>">
-<p><%=comment.user_name%></p>
+<p><%=comment.user.email%><%= link_to "Delete", comments_path(comment.post, comment),method: :delete, :class =>"btn btn-outline-danger"%></p>
 <p>
 <%=comment.body%>
 </p>
