@@ -16,7 +16,7 @@
     </p>
     <%if user_signed_in?%>
         <%=link_to "Delete", comment_path(comment), method: :delete, :class =>"btn btn-outline-danger" if comment.user_id == current_user.id%>
-        <%end%>
+    <%end%>
     <div class="ps-5">
             <%= render 'comments/form',  url: comment_comments_path(comment)%> 
             <%=render comment.comments %>

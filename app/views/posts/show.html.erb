@@ -5,19 +5,36 @@
             <%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger" if @post.user_id == current_user.id%></h3>
     <%end%>
 <%end%>
-<h1><%=@post.title%></h1>
-<h4><%=@post.body%></h4>
-<%= image_tag @post.photo, width:300 %>
+<div>
+    <h1>
+        <%=@post.title%>
+    </h1>
+    <h4>
+        <%=@post.body%>
+    </h4>
+        <%= image_tag @post.photo, width:300 %>
+</div>
 <div id="images">
-<%@post.images.each do |image|%>
-<%=image_tag image, width:200%>
-<%end%>
+    <%@post.images.each do |image|%>
+        <%=image_tag image, width:200%>
+    <%end%>
+</div>
+<div >
+    <p>
+    <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+                <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, :class=>"btn btn-danger" %>
+            <% else %>
+                <%= button_to 'Like', post_likes_path(@post), method: :post, :class=>"btn btn-primary" %>
+            <% end %>
+        <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
+    </p>
 </div>
 <div id="comments" class="ps-2">
-ADD COMMENT:
-<%= render 'comments/form', url: post_comments_path(@post)%>
-Comments:
-<%=render @comments %>
+    ADD COMMENT:
+    <%= render 'comments/form', url: post_comments_path(@post)%>
+    Comments:
+    <%=render @comments %>
 </div>
 
 <h3>Post`s author: <%=@post.username%></h3>
