@@ -44,10 +44,7 @@ class PostsController < ApplicationController
 
     private 
     def user_post
-        redirect_back(fallback_location: posts_path)
-    unless @post = current_user.posts.find_by(id: params[:id])
-    
-    end
+        redirect_back(fallback_location: posts_path) unless @post = current_user.posts.find_by(id: params[:id])
     end
 
 

@@ -1,9 +1,9 @@
 <h3>
 <% if user_signed_in? %>
       <% if @post.username.eql? current_user.email %>
-<%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-outline-warning"%> 
-<%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger" if @post.user_id == current_user.id%></h3>
-<%end%>
+            <%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-outline-warning"%> 
+            <%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger" if @post.user_id == current_user.id%></h3>
+    <%end%>
 <%end%>
 <h1><%=@post.title%></h1>
 <h4><%=@post.body%></h4>
@@ -13,9 +13,9 @@
 <%=image_tag image, width:200%>
 <%end%>
 </div>
-<div id="comments">
+<div id="comments" class="ps-2">
 ADD COMMENT:
-<%= render 'comments/form'%>
+<%= render 'comments/form', url: post_comments_path(@post)%>
 Comments:
 <%=render @comments %>
 </div>

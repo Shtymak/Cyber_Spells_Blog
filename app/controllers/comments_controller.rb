@@ -11,20 +11,29 @@ class CommentsController < ApplicationController
         end
     end
 
+def comment_create
+    params[:comment][:user_id] = current_user.id
+        @comment = comment.comments.build(comment_params) 
+        if comment.save
+            redirect_back(fallback_location:home_path)
+            pp 'comment error'
+        end
+end
 
 def destroy
-    @post = @comment.post
-    if @comment.destroy
-        redirect_to post_path(post)
+    #@post = @comment.post
+    if comment.destroy
+        redirect_back(fallback_location: home_path)
         pp 'deleted'
    else
-        redirect_back(fallback_location: post_path(post))
+        redirect_back(fallback_location: home_path)
         pp 'not deleted'
    end
 end
 
 
     private 
+
     def comment
         @comment ||= Comment.find(params[:comment_id])
       end

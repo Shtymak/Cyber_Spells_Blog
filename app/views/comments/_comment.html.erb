@@ -1,7 +1,22 @@
-<div id="comment_<%=comment.id%>">
-<p><%=comment.user.email%> <%=link_to "Delete", comment_path(comment), method: :delete, :class =>"btn btn-outline-danger" if comment.user_id == current_user.id%></p>
-<p>
-<%=comment.body%>
-</p>
-<%=comment.created_at%>
+<div id="comment_<%=comment.id%>" >
+    <p>
+        <h4><%=comment.user.email%></h4> 
+    </p>
+    <p>
+        <b>
+            <%=comment.body%>
+        </b> 
+        <i>
+            <small>
+                <small>
+                    <%=comment.created_at%>
+                </small>
+            </small>
+        </i>
+    </p>
+        <%=link_to "Delete", comment_path(comment), method: :delete, :class =>"btn btn-outline-danger" if comment.user_id == current_user.id%>
+    <div class="ps-5">
+            <%= render 'comments/form',  url: comment_comments_path(comment)%> 
+            <%=render comment.comments %>
+    </div>
 </div>
