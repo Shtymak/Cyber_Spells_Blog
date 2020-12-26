@@ -1,5 +1,4 @@
 <div>
-<%if current_user.id == @user.id %>
         <h2>
             Profile:  <%=@user.email%>
         </h2>
@@ -10,5 +9,4 @@
         <% likes += post.likes.count %>
         <%end%>
         <%=likes%>
-    <%end%>
 </div>
