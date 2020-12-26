@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   
     def show
         @comments = post.comments
+        post.update(views: post.views+1)
      end
   
     def new
@@ -34,6 +35,7 @@ class PostsController < ApplicationController
         #params[:post][:user_id] = current_user.id
         #post = Post.new(post_params)
         post.username = current_user.email
+        post.views = 1
        if post.save
             redirect_to post
        else
@@ -53,7 +55,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit( :user_id, :title, :body, :image, images: [])
+        params.require(:post).permit( :views, :user_id, :title, :body, :image, images: [])
     end
 
 end

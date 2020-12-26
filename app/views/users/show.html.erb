@@ -1,0 +1,14 @@
+<div>
+<%if current_user.id == @user.id %>
+        <h2>
+            Profile:  <%=@user.email%>
+        </h2>
+        <%=render @user_posts%>
+        Likes:
+        <% likes = 0 %>
+        <% @user_posts.each do |post| %>
+        <% likes += post.likes.count %>
+        <%end%>
+        <%=likes%>
+    <%end%>
+</div>

@@ -1,5 +1,9 @@
-<h2>Edit<h2>
+<div>
+    <h2>
+        Edit
+    </h2>
 
-<%=form_for :post, url: post_path, method: :patch do |f|%>
-<%= render 'form',f:f %>
-<%end%>
+    <%=form_for :post, url: post_path, method: :patch do |f|%>
+        <%= render 'form',f:f %>
+    <%end%>
+</div>

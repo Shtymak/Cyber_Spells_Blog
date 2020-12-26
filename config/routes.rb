@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to:'pages#index',as:'home'
   get 'posts/new',as:'post_new'
-  
+  resources :users
   resources :posts do
     resources :comments, only: %i[create destroy]
     resources :likes
