@@ -16,10 +16,15 @@
 </p>
 <p>
     <div class="field">
+        <%=f.label :category%>
+        <%=f.select :category_id, Category.all.collect{|category|[category.name, category.id]}%>
+    </div>
+</p>
+<p>
+    <div class="field">
         <%=f.label :images%>
         <%=f.file_field :images, multiple: true %>
     </div>
 </p>
     <%=f.submit "Ok"%>
 </p>
-

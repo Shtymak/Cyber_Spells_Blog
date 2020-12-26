@@ -2,18 +2,18 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
     #before_action :post
     before_action :user_post, only: %i[edit update destroy]
-    
+
     def index
         @posts = Post.all
     end
-  
+
     def show
         @comments = post.comments
         post.update(views: post.views+1)
      end
-  
+
     def new
-  
+
     end
 
     def update
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     def edit
         post
     end
-  
+
     def create
         post = current_user.posts.build(post_params)
         #params[:post][:user_id] = current_user.id
@@ -44,18 +44,18 @@ class PostsController < ApplicationController
     end
 
 
-    private 
+    private
     def user_post
         redirect_back(fallback_location: posts_path) unless @post = current_user.posts.find_by(id: params[:id])
     end
 
 
-    def post 
+    def post
          @post ||= Post.find(params[:id])
     end
 
     def post_params
-        params.require(:post).permit( :views, :user_id, :title, :body, :image, images: [])
+        params.require(:post).permit( :views, :user_id, :title, :category_id, :body, :image, images: [])
     end
 
 end

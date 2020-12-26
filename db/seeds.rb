@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Category.create!( [
+  {name: "Food"},
+  {name: "Sport"},
+  {name: "Other"}
+  ] )
+  Post.create!(
+    title:"Title",
+    body: "Body",
+    user_id:1
+    category_id:1
+  )

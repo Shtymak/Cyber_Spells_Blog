@@ -1,7 +1,7 @@
 <h3>
 <% if user_signed_in? %>
       <% if @post.username.eql? current_user.email %>
-            <%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-outline-warning"%> 
+            <%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-outline-warning"%>
             <%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger" if @post.user_id == current_user.id%></h3>
     <%end%>
 <%end%>
@@ -13,6 +13,9 @@
         <%=@post.body%>
     </h4>
         <%= image_tag @post.photo, width:300 %>
+</div>
+<div class="">
+  Category: <%= @post.category.name%>
 </div>
 <div id="images">
     <%@post.images.each do |image|%>

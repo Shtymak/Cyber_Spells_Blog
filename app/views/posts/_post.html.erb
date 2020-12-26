@@ -11,4 +11,5 @@
             <span class="p-2 text-dark"><%= link_to "Delete", post_path(post), method: :delete, :class => "btn btn-outline-danger" %></span>
         <% end %>
     <% end %>
+    <%=link_to post.category.name,category_path(post.category)%>
 </div>
