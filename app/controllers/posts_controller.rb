@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     before_action :user_post, only: %i[edit update destroy]
 
     def index
-        @posts = Post.all
+        @posts = Post.all.includes(:likes).with_attached_image
     end
 
     def show
