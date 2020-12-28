@@ -45,4 +45,4 @@
     <%=render @comments %>
 </div>
 
-<h3>Post`s author: <%=@post.username%></h3>
+<h3>Post`s author: <%=link_to @post.user.nickname, user_path(@post.user.id), :class => "btn btn-warning" %></h3>

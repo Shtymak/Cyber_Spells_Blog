@@ -5,5 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+  has_one_attached :avatar
   has_many :comments
+
+  def logo
+      if avatar.attached?
+          avatar
+      else
+          "/nfd.jpg"
+      end
+  end
 end

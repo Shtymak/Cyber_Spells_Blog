@@ -1,12 +1,19 @@
-<div>
-        <h2>
-            Profile:  <%=@user.email%>
-        </h2>
+<div class="">
+<%= image_tag @user.logo, width:150%>
+<h2>
+  Profile:  <%=@user.email%>
+</h2>
+ <h3>
+   Nickname: <%=@user.nickname%>
+</h3>
+</div>
+<div class="row">
         <%=render @user_posts%>
-        Likes:
         <% likes = 0 %>
         <% @user_posts.each do |post| %>
         <% likes += post.likes.count %>
         <%end%>
-        <%=likes%>
+        <div class="px - 2">
+          Likes: <%=likes%>
+        </div>
 </div>
