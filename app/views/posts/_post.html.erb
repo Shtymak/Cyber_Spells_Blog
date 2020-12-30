@@ -1,6 +1,6 @@
 <div class="col-6">
   <b>
-    <%= link_to post.title, post_path(post), :class => "btn btn-light"%> likes:<%=post.likes.count%>
+    <%= link_to post.title, post_path(post), :class => "btn btn-light"%> likes:<%=post.likes.size%>
   </b>
   <p>
     <%= image_tag post.photo, width:300 %>

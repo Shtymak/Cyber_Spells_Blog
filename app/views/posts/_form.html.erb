@@ -1,9 +1,12 @@
 <%=f.input :title%>
+
 <%=f.input :body, as: :text%>
 
 <%=f.input :category_id, collection: Category.all%>
 
 
-<%=f.input :image, as: :file%>
+<p><%=f.input :image, as: :file%></p>
 
 <%=f.input :images, as: :file, input_html:{multiple: true}%>
+
+<%=f.submit%>

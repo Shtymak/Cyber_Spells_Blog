@@ -19,11 +19,6 @@ class LikesController < ApplicationController
     end
     redirect_to post_path(@post)
   end
-  def index
-    @likes = Like.joins(:responses).
-      select("likes.*", 'COUNT("responses.id") AS responses_count').
-      group('likes.id')
-  end
 
   private
 

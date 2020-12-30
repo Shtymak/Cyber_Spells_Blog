@@ -11,7 +11,7 @@
         <%=render @user_posts%>
         <% likes = 0 %>
         <% @user_posts.each do |post| %>
-        <% likes += post.likes.count %>
+        <% likes += post.likes.size %>
         <%end%>
         <div class="px - 2">
           Likes: <%=likes%>
