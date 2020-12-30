@@ -35,7 +35,7 @@ class PostsController < ApplicationController
         #params[:post][:user_id] = current_user.id
         #post = Post.new(post_params)
         post.username = current_user.email
-        post.views = 1
+        post.views = 0
        if post.save
             redirect_to post
        else

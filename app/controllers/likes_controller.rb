@@ -19,6 +19,11 @@ class LikesController < ApplicationController
     end
     redirect_to post_path(@post)
   end
+  def index
+    @likes = Like.joins(:responses).
+      select("likes.*", 'COUNT("responses.id") AS responses_count').
+      group('likes.id')
+  end
 
   private
 
@@ -29,7 +34,7 @@ class LikesController < ApplicationController
   def already_liked?
     Like.where(user_id: current_user.id, post_id: params[:post_id]).exists?
   end
- 
+
   def find_like
     @like = @post.likes.find(params[:id])
  end

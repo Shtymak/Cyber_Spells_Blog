@@ -31,7 +31,7 @@
             <% else %>
                 <%= button_to 'Like', post_likes_path(@post), method: :post, :class=>"btn btn-primary" %>
             <% end %>
-        <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
+        <%= @post.likes.size %> <%= (@post.likes.size) == 1 ? 'Like' : 'Likes'%>
         <%end%>
     </p>
 </div>

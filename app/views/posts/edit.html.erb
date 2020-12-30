@@ -3,7 +3,7 @@
         Edit
     </h2>
 
-    <%=form_for :post, url: post_path, method: :patch do |f|%>
+    <%=simple_form_for :post, url: post_path, method: :patch do |f|%>
         <%= render 'form',f:f %>
     <%end%>
 </div>

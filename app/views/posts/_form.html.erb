@@ -1,30 +1,9 @@
-<div class="mb-3">
-    <p>
-        Name
-        <br>
-        <%=f.text_field:title%>
-    </p>
-        Text
-        <br>
-            <%=f.text_area:body%>
-    </p>
-<p>
-    <div class="field">
-        <%=f.label :image%>
-        <%=f.file_field :image%>
-    </div>
-</p>
-<p>
-    <div class="field">
-        <%=f.label :category%>
-        <%=f.select :category_id, Category.all.collect{|category|[category.name, category.id]}%>
-    </div>
-</p>
-<p>
-    <div class="field">
-        <%=f.label :images%>
-        <%=f.file_field :images, multiple: true %>
-    </div>
-</p>
-    <%=f.submit "Ok"%>
-</p>
+<%=f.input :title%>
+<%=f.input :body, as: :text%>
+
+<%=f.input :category_id, collection: Category.all%>
+
+
+<%=f.input :image, as: :file%>
+
+<%=f.input :images, as: :file, input_html:{multiple: true}%>

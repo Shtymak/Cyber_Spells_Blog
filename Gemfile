@@ -55,6 +55,7 @@ end
 
 #gem 'therubyracer'
 gem 'devise'
+gem 'simple_form'
 #gem 'omniauth'
 #gem 'omniauth-digitalocean'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
