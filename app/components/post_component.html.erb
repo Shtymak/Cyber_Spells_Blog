@@ -1,0 +1,10 @@
+<div class="col-6">
+  <b>
+    <%= link_to @post.title, post_path(@post), :class => "btn btn-light"%> likes:<%=@post.likes.size%>
+  </b>
+  <p>
+    <%= image_tag @post.photo, width:300 %>
+  </p>
+
+    <%=link_to @post.category.name,category_path(@post.category)%>
+</div>
