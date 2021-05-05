@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :comments
 
+  has_many :conversations, :foreign_key => :sender_id
+
   def logo
       if avatar.attached?
           avatar

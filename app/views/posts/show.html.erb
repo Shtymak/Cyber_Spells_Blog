@@ -1,43 +1,55 @@
-<h3>
+<div class="container">
+  <div class="post" align="bottom">
+<%= image_tag @post.photo, width:300 %>
+<div class="bottom-right">
+
 <% if user_signed_in? %>
       <% if @post.username.eql? current_user.email %>
             <%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-outline-warning"%>
-            <%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger" if @post.user_id == current_user.id%></h3>
+            <%= link_to "Delete",post_path(@post), method: :delete, :class =>"btn btn-outline-danger" if @post.user_id == current_user.id%>
     <%end%>
 <%end%>
-<div>
-    <h1>
-        <%=@post.title%>
-    </h1>
-    <h4>
-        <%=@post.body%>
-    </h4>
-        <%= image_tag @post.photo, width:300 %>
 </div>
+</div>
+<div class="description">
+<div class="card">
+  <div class="card-body">
+        <h2>
+          <%=@post.title%>
+        </h2>
+        <hr>
+        <h4>
+          <%=@post.body%>
+        </h4>
 <div class="">
   Category: <%= @post.category.name%>
 </div>
 <div id="images">
     <%@post.images.each do |image|%>
-        <%=image_tag image, width:200%>
+        <%=image_tag image, class:"post-images"%>
     <%end%>
-</div>
-<div >
-    <p>
-    <%if user_signed_in?%>
-    <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-            <% if pre_like %>
-                <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, :class=>"btn btn-danger" %>
-            <% else %>
-                <%= button_to 'Like', post_likes_path(@post), method: :post, :class=>"btn btn-primary" %>
-            <% end %>
+    <div>
+        Views: <%=@post.views%>
+    </div>
+    <div >
+        <p>
+        <%if user_signed_in?%>
+        <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
         <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
-        <%end%>
-    </p>
+                <% if pre_like %>
+                    <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete, :class=>"btn btn-danger" %>
+                <% else %>
+                    <%= button_to 'Like', post_likes_path(@post), method: :post, :class=>"btn btn-primary" %>
+                <% end %>
+            <%end%>
+        </p>
+    </div>
 </div>
-<div>
-    Views: <%=@post.views%>
 </div>
+</div>
+</div>
+
+
 <div id="comments" class="ps-2">
     ADD COMMENT:
     <%= render 'comments/form', url: post_comments_path(@post)%>
@@ -46,3 +58,5 @@
 </div>
 
 <h3>Post`s author: <%=link_to @post.user.nickname, user_path(@post.user.id), :class => "btn btn-warning" %></h3>
+
+</div>

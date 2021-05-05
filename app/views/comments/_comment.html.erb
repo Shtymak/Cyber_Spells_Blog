@@ -1,24 +1,21 @@
-<div id="comment_<%=comment.id%>" >
-    <p>
-        <h4><%=comment.user.email%></h4> 
-    </p>
-    <p>
-        <b>
-            <%=comment.body%>
-        </b> 
-        <i>
-            <small>
-                <small>
-                    <%=comment.created_at%>
-                </small>
-            </small>
-        </i>
-    </p>
+
+<div id="comment_<%=comment.id%>">
+
+  <div class="card">
+    <div class="card-header">
+      <%=comment.user.nickname%>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%=comment.body%></h5>
+      <p class="card-text"><%=comment.created_at%></p>
+    </div>
     <%if user_signed_in?%>
         <%=link_to "Delete", comment_path(comment), method: :delete, :class =>"btn btn-outline-danger" if comment.user_id == current_user.id%>
     <%end%>
     <div class="ps-5">
-            <%= render 'comments/form',  url: comment_comments_path(comment)%> 
+            <%= render 'comments/form',  url: comment_comments_path(comment)%>
             <%=render comment.comments %>
     </div>
+  </div>
+
 </div>

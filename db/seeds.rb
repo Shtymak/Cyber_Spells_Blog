@@ -11,9 +11,3 @@ Category.create!( [
   {name: "Sport"},
   {name: "Other"}
   ] )
-  Post.create!(
-    title:"Title",
-    body: "Body",
-    user_id:1
-    category_id:1
-  )
