@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_05_05_093832) do
+=======
+ActiveRecord::Schema.define(version: 2020_12_30_115358) do
+>>>>>>> a1d17b54da6ae330d99fae25b1d79eda176c7a78
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -92,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_093832) do
     t.integer "user_id"
     t.integer "views"
     t.integer "category_id"
+    t.integer "likes_count"
   end
 
   create_table "users", force: :cascade do |t|

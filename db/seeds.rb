@@ -9,5 +9,7 @@
 Category.create!( [
   {name: "Food"},
   {name: "Sport"},
+  {name: "Science"},
+  {name: "Games"},
   {name: "Other"}
   ] )

@@ -55,8 +55,12 @@ end
 
 #gem 'therubyracer'
 gem 'devise'
+gem 'simple_form'
 #gem 'omniauth'
 #gem 'omniauth-digitalocean'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+<<<<<<< HEAD
 
 gem 'view_component', require: 'view_component/engine'
+=======
+>>>>>>> a1d17b54da6ae330d99fae25b1d79eda176c7a78
