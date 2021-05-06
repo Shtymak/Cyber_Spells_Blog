@@ -1,7 +1,12 @@
 <%= form_for :comment, url: url, html:{class:"m-3"} do |f|%>
 <div class="mb-3">
-  Comment:
-  <%= f.text_field :body, class:"form-control" %>
+  Коментар:
+  <%= f.text_area :body, class:"form-control form-size" %>
 </div>
-  <%= f.submit "Comment", class:"btn btn-success"%>
+<div class="form-group input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-share"></i> </span>
+     </div>
+     <%= f.submit "Відправити", class:"form-control button-size"%>
+</div>
 <% end %>

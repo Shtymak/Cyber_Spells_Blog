@@ -1,10 +1,25 @@
 <div class="col-6">
-  <b>
-    <%= link_to @post.title, post_path(@post), :class => "btn btn-light"%> likes:<%=@post.likes.size%>
-  </b>
-  <p>
-    <%= image_tag @post.photo, width:300 %>
-  </p>
 
-    <%=link_to @post.category.name,category_path(@post.category)%>
-</div>
+    <div class="blog-card">
+      <div class="meta">
+         <%= image_tag @post.photo, class:"photo", width:280, height:180%>
+        <ul class="details">
+          <li class="author"><a href="<%=user_path(@post.user)%>"><%=@post.user.nickname%></a></li>
+          <li class="date"><%=@post.created_at.strftime('%m/%d/%Y %H:%M:%S')%></li>
+          <li class="tags">
+            <ul>
+              <li><a href="<%=category_path(@post.category)%>"><%=@post.category.name%></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="description">
+        <h1><%=@post.title%></h1>
+        <h2>Перегляди: <%=@post.views%></h2>
+        <p><%= @post.body[0...-@post.body.length+26]+"..."%></p>
+        <p class="read-more">
+          <a href="<%=post_path(@post)%>">Перейти</a>
+        </p>
+      </div>
+    </div>
+  </div>

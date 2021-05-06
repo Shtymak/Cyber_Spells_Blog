@@ -1,9 +1,7 @@
-<div>
-    <h2>
-        Edit
-    </h2>
+<div class="container">
+    <h2 class="center-text">Новий допис<h2>
 
-    <%=simple_form_for :post, url: post_path, method: :patch do |f|%>
+    <%=form_for :post, url: post_path, method: :patch do |f|%>
         <%= render 'form',f:f %>
     <%end%>
 </div>

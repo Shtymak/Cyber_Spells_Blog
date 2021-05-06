@@ -3,14 +3,20 @@
 
   <div class="card">
     <div class="card-header">
+      <%=image_tag comment.user.logo,height:30, width: 30, :class=>"rounded-circle"%>
       <%=comment.user.nickname%>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%=comment.body%></h5>
-      <p class="card-text"><%=comment.created_at%></p>
+      <p class="card-text"><%=comment.created_at.strftime('%m/%d/%Y %H:%M:%S')%></p>
     </div>
-    <%if user_signed_in?%>
-        <%=link_to "Delete", comment_path(comment), method: :delete, :class =>"btn btn-outline-danger" if comment.user_id == current_user.id%>
+    <%if user_signed_in?&&comment.user_id == current_user.id%>
+        <div class="form-group input-group button-margin">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-remove "></i> </span>
+             </div>
+             <%=link_to "Видалити", comment_path(comment), method: :delete, :class =>"form-control button-size" %>
+        </div>
     <%end%>
     <div class="ps-5">
             <%= render 'comments/form',  url: comment_comments_path(comment)%>

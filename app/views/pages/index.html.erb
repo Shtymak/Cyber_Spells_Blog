@@ -1,1 +1,10 @@
-<h1>Main<h1>
+<div class="container">
+  <div class="row">
+
+<%if user_signed_in?%>
+<%current_user.followees.reverse.each do |followee|%>
+<%=render PostComponent.with_collection(followee.posts.reverse)%>
+<%end%>
+<%end%>
+</div>
+</div>

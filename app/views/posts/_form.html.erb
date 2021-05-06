@@ -1,12 +1,45 @@
-<%=f.input :title%>
+<div class="container">
+  <div class="title-form">
+    <div class="form-group input-group">
+    		<div class="input-group-prepend">
+    		    <span class="input-group-text"> <i class="fa fa-bookmark"></i> </span>
+    		 </div>
+         <%=f.text_field :title, class:"form-control", placeholder:"Назва композиції"%>
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-newspaper-o"></i> </span>
+         </div>
+         <%=f.text_area :body, class:"form-control", placeholder:"Опис"%>
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-audio-description"></i> </span>
+         </div>
+         <%=f.select :category_id, Category.all.collect{|r|[r.name,r.id]}, class:"form-control", placeholder:"Тип"%>
+    </div>
+    <%=f.label "Фото"%>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-image"></i> </span>
+         </div>
+         <%=f.file_field :image, class:"form-control", placeholder:"Фото"%>
+    </div>
 
-<%=f.input :body, as: :text%>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-file-image-o"></i> </span>
+         </div>
+         <%=f.file_field :images,multiple:true, class:"form-control", placeholder:"Фото"%>
+    </div>
 
-<%=f.input :category_id, collection: Category.all%>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-save"></i> </span>
+         </div>
+         <%=f.submit "Опублікувати", class:"form-control"%>
+    </div>
 
+  </div>
 
-<p><%=f.input :image, as: :file%></p>
-
-<%=f.input :images, as: :file, input_html:{multiple: true}%>
-
-<%=f.submit%>
+</div>

@@ -61,3 +61,5 @@ gem 'simple_form'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'view_component', require: 'view_component/engine'
+
+gem 'letsrate'

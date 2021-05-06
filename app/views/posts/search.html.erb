@@ -1,0 +1,12 @@
+    <h1 class="text-center"> Результат пошуку  </h1>
+    <%if @posts.count > 0%>
+    <div class="row">
+        <%= render PostComponent.with_collection(@posts)%>
+    </div>
+    <%else%>
+    <div class="photo-center">
+
+      <%=image_tag "/nfds.jpeg",class:"photo-center photo-size",width:500%>
+    </div>
+<%end%>
+<h3 class="text-center"> кількість результаів пошуку: <%=@posts.count%> </h3>

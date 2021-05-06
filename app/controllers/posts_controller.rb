@@ -9,6 +9,12 @@ class PostsController < ApplicationController
 
     def show
         @comments = post.comments
+        @rating = Rating.find_or_initialize_by(user: current_user, post: post)
+        @rating.value = params[:value]
+        pp params[:value]
+        # unless @rating.save
+        #     @rating.update_attribute :value
+        # end
         post.update(views: post.views+1)
      end
 
@@ -44,6 +50,11 @@ class PostsController < ApplicationController
     end
 
 
+    def search
+      search = params[:search].downcase
+      @posts = Post.where("lower(title) LIKE '%#{search}%'OR lower(body) LIKE'%#{search}%'")
+    end
+
     private
     def user_post
         redirect_back(fallback_location: posts_path) unless @post = current_user.posts.find_by(id: params[:id])
@@ -55,7 +66,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit( :views, :user_id, :title, :category_id, :body, :image, images: [])
+        params.require(:post).permit( :views, :user_id, :title, :category_id,:body, :image, images: [])
     end
 
 end

@@ -7,9 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Category.create!( [
-  {name: "Food"},
-  {name: "Sport"},
-  {name: "Science"},
-  {name: "Games"},
-  {name: "Other"}
+  {name: "Опера"},
+  {name: "Балет"},
+  {name: "Бароко-поп"},
+  {name: "Епоха класицизму"},
+  {name: "Ренесанс"},
+  {name: "Романтизм"},
+  {name: "Симфонія"},
+  {name: "Інша"}
   ] )

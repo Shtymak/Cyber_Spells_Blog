@@ -1,4 +1,4 @@
 <h1><%=@category.name%></h1>
-<div class="">
-  <%=render @category.posts%>
+<div class="row">
+  <%=render PostComponent.with_collection(@category.posts)%>
 </div>

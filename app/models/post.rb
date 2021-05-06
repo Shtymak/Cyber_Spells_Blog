@@ -5,7 +5,7 @@ has_many :comments
 belongs_to :user
 belongs_to :category
 has_many :likes, dependent: :destroy
-
+has_many :ratings, dependent: :destroy
 def photo
     if image.attached?
         image
