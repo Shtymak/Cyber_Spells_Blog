@@ -1,6 +1,7 @@
 <div class="container">
+
   <div class="post" align="bottom">
-    <%= image_tag @post.photo %>
+    <%= image_tag @post.photo,width:400 %>
 <div class="bottom-right">
 
 <% if user_signed_in? %>
@@ -41,7 +42,6 @@
     </div>
     <div >
         <p>
-        <%if user_signed_in?%>
         <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
         <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Вподобання' : 'Вподобань'%>
                 <% if pre_like %>
@@ -67,7 +67,12 @@
                  </div>
                  <%=link_to @post.user.nickname, user_path(@post.user.id), :class => "form-control button-size" %>
                  </div>
-            <%end%>
+            <audio
+                    controls
+                    src="<%=url_for(@post.audio)%>">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                </audio>
 </div>
 </div>
 </div>
@@ -84,7 +89,7 @@
 </div>
 
 </div>
-<%unless @post.ratings.find_by(user_id: current_user.id)%>
+<%unless @post.ratings.find_by(user_id: current_user&.id)%>
 <%=render 'ratings/form', rating:@rating%>
 <%end%>
 

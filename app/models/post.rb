@@ -6,6 +6,10 @@ belongs_to :user
 belongs_to :category
 has_many :likes, dependent: :destroy
 has_many :ratings, dependent: :destroy
+
+has_one_attached :audio
+
+
 def photo
     if image.attached?
         image

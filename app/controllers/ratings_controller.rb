@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
 before_action :post
+before_action :authenticate_user!
 
   def create
       @rating = current_user.ratings.build(rating_params)
