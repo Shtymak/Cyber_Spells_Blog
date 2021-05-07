@@ -9,18 +9,14 @@ class PostsController < ApplicationController
 
     def show
         @comments = post.comments
-        @rating = Rating.find_or_initialize_by(user: current_user, post: post)
-        @rating.value = params[:value]
-        pp params[:value]
+        @rating = post.ratings.build(user: current_user)
         # unless @rating.save
         #     @rating.update_attribute :value
         # end
-        post.update(views: post.views+1)
+        post.update(views: post.views + 1)
      end
 
-    def new
-
-    end
+    def new;end
 
     def update
         post.update(post_params)
@@ -66,7 +62,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit( :views, :user_id, :title, :category_id,:body, :image, images: [])
+        params.require(:post).permit( :views, :user_id, :title, :category_id, :body, :image, images: [])
     end
 
 end

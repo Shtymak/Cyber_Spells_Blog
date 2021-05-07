@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
 before_action :post
 
   def create
-      @rating = @post.ratings.new :value => params[:value]
+      @rating = current_user.ratings.build(rating_params)
       if @rating.save
         pp "Rate successful"
         redirect_to @post, :notice => "Rating successful."
@@ -22,6 +22,10 @@ before_action :post
     end
 
     private
+
+    def rating_params
+      params.require(:rating).permit(:user_id, :post_id, :value)
+    end
 
     def post
         @post = Post.find(params[:post_id])

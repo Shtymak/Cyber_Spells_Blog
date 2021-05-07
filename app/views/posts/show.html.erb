@@ -68,7 +68,6 @@
                  <%=link_to @post.user.nickname, user_path(@post.user.id), :class => "form-control button-size" %>
                  </div>
             <%end%>
-        </p>
 </div>
 </div>
 </div>
@@ -85,13 +84,8 @@
 </div>
 
 </div>
-
-<%=form_for [@post, @rating]  do |f|%>
-<%= f.select( :value, (1..10))%>
-  <%=f.submit "Rate this Article"%>
+<%unless @post.ratings.find_by(user_id: current_user.id)%>
+<%=render 'ratings/form', rating:@rating%>
 <%end%>
 
-
-<%@post.ratings.each do |r|%>
-<%=r.value%>
-<%end%>
+<%=@post.ratings.average(:value)%>

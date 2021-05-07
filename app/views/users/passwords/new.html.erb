@@ -1,16 +1,26 @@
-<h2>Forgot your password?</h2>
+
+<div class="container">
+
+<h2>Забули пароль?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+       </div>
+       <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control card-size", placeholder: "Ваша пошта" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="form-group input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-undo"></i> </span>
+       </div>
+       <%= f.submit "Скинути пароль",class:"form-control card-size" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+
+</div>
