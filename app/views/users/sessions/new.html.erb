@@ -1,26 +1,42 @@
-<h2>Log in</h2>
+<div class="container">
+
+
+<h2>Вхід</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="title-form">
+  <div class="form-group input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+       </div>
+       <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control card-size",placeholder:"Електронна пошта" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+
+  <%=f.label "Пароль"%>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+           </div>
+           <%= f.password_field :password, autocomplete: "new-password",class:"form-control card-size", placeholder: "Пароль" %>
+      </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label "Запам'ятати мене" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="form-group input-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-sign-in"></i> </span>
+       </div>
+       <%= f.submit "Ввійти",class:"form-control card-size" %>
   </div>
 <% end %>
+<br>
+<br>
 
 <%= render "users/shared/links" %>
+</div>

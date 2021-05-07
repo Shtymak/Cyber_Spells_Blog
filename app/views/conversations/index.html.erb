@@ -2,8 +2,7 @@
 
 
 <div class="ui segment">
-  <h3>Скринька</h3>
-
+  <h3 class="">Скринька</h3>
   <div class="ui list">
     <div class="item">
       <% @conversations.each do |conversation| %>
@@ -27,20 +26,4 @@
     </div>
   </div>
 </div>
-
-
-<div class="ui segment">
-  <h3>Всі користувачі</h3>
-  <div class="ui list">
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-      <div class="item">
-        <%= user.nickname %> <%= link_to 'Напиши мені!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-
 </div>

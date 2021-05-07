@@ -1,43 +1,82 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+
+
+<h2>Редагувати профіль</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
+  <div class="title-form">
+    <%=f.label "Перональні дані"%>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+         </div>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control card-size",placeholder:"Електронна пошта" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+         <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname",class:"form-control card-size",placeholder:"Ваше ім'я" %>
+    </div>
+
+    <%=f.label "Фото"%>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-image"></i> </span>
+         </div>
+         <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar",class:"form-control card-size" %>
+    </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+  <%=f.label "Новий пароль"%>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+           </div>
+           <%= f.password_field :password, autocomplete: "new-password",class:"form-control card-size", placeholder: "Необов'язкове поле" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-shield"></i> </span>
+           </div>
+           <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control card-size", placeholder: "Підтвердження паролю" %>
+      </div>
+        <%=f.label "Поточний пароль"%>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-check-square"></i> </span>
+           </div>
+           <%= f.password_field :current_password, autocomplete: "current-password",class:"form-control card-size", placeholder: "Поточний пароль(обов'язково)" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-save"></i> </span>
+           </div>
+           <%=f.submit "Зберегти зміни", class:"form-control card-size"%>
+      </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Видалити профіль</h3>
+<div class="form-group input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-user-times"></i> </span>
+     </div>
+     <%= link_to "Видалити мій профіль", registration_path(resource_name), data: { confirm: "Ви впевнені?" }, method: :delete,class:"form-control card-size" %>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div class="form-group input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-arrow-left"></i> </span>
+     </div>
+     <%= link_to "Повернутися", :back, class:"form-control card-size" %>
+</div>
 
-<%= link_to "Back", :back %>
+</div>

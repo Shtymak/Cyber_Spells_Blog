@@ -33,13 +33,19 @@
                        </div>
                        <%= button_to "Вихід", destroy_user_session_path, method: :delete, :class => 'form-control' if current_user.id == @user.id %>
                        </div>
+                       <div class="form-group input-group">
+                       <div class="input-group-prepend">
+                           <span class="input-group-text"> <i class="fa fa-edit"></i> </span>
+                        </div>
+                        <%= link_to "Редагувати профіль", edit_user_registration_path, :class => 'form-control' if current_user.id == @user.id %>
+                        </div>
                       <% end%>
                       <%unless @user.id == current_user.id%>
                       <div class="form-group input-group">
                       <div class="input-group-prepend">
                           <span class="input-group-text"> <i class="fa fa-send"></i> </span>
                        </div>
-                       <%=button_to "Написати повідомлення", conversations_path, class:"form-control"%>
+                       <%=button_to "Написати повідомлення", conversations_path(sender_id: current_user.id, recipient_id: @user.id), class:"form-control"%>
                        </div>
                       <%end%>
                     </div>
@@ -61,7 +67,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Вподобання постів</h6>
+                      <h6 class="mb-0">Вподабання ваших дописів</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       <% likes = 0 %>

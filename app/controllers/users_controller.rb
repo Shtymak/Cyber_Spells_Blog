@@ -17,4 +17,5 @@ class UsersController < ApplicationController
     redirect_back(fallback_location: user_path(@user))
   end
 
+
 end

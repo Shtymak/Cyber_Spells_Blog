@@ -1,10 +1,10 @@
 <div class="container">
   <div class="post" align="bottom">
-<%= image_tag @post.photo, width:300 %>
+    <%= image_tag @post.photo %>
 <div class="bottom-right">
 
 <% if user_signed_in? %>
-      <% if @post.username.eql? current_user.email %>
+      <% if @post.user.eql? current_user %>
       <div class="form-group input-group">
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-edit"></i> </span>

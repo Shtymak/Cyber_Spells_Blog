@@ -3,6 +3,10 @@
 <% end %>
 <div class="container">
 
+
+<div class="center-text">
+<h3>Чат з користувачем <%=@conversation.recipient.nickname%></h3>
+</div>
 <div class="ui segment">
   <% @messages.each do |message| %>
     <% if message.body %>
@@ -24,13 +28,10 @@
 
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
   <div class="field">
-    <%= f.text_area :body, class: "form-control" %>
+    <%= f.text_area :body, class: "form-control", placeholder:"Повідомлення" %>
     <%= f.submit "Надіслати", class: "btn btn-outline-success bottom-right" %>
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div class="">
-
-  </div>
 
 <% end %>
 </div>
