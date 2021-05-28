@@ -18,4 +18,19 @@ def photo
     end
 end
 
+
+def set_image=(src)
+  file = File.open(Rails.root.join("public/#{src}.jpeg"))
+  image.attach(io: file, filename: title)
+rescue OpenURI::HTTPError => e
+  pp e
+end
+
+def set_audio=(src)
+  file = File.open(Rails.root.join("public/#{src}.mp3"))
+  audio.attach(io: file, filename: audio)
+rescue OpenURI::HTTPError => e
+  pp e
+end
+
 end

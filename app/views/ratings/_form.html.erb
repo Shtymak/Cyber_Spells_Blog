@@ -1,8 +1,19 @@
-<%=form_for rating, url:post_ratings_path(rating.post) do |f|%>
-
-<%=f.select :value,(1..5)%>
+<div class="title-form">
+<%=simple_form_for rating, url:post_ratings_path(rating.post) do |f|%>
+<div class="form-group input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-volume-up"></i> </span>
+     </div>
+     <%= f.select :value,(1..5), class:"form-control"%>
+</div>
 
 <%=f.hidden_field :post_id%>
 
-<%=f.submit "Save"%>
+<div class="form-group input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-star"></i> </span>
+     </div>
+<%=f.submit "Оцінити", class:"form-control card-size"%>
+</div>
 <%end%>
+</div>

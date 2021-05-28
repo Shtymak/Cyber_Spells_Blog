@@ -4,19 +4,17 @@ class PostsController < ApplicationController
     before_action :user_post, only: %i[edit update destroy]
 
     def index
-        @posts = Post.all.includes(:likes).with_attached_image
+        @posts = Post.all.includes(:likes).with_attached_images
     end
 
     def show
         @comments = post.comments
+        post.update(views: post.views+1)
         @rating = post.ratings.build(user: current_user)
-        # unless @rating.save
-        #     @rating.update_attribute :value
-        # end
-        post.update(views: post.views + 1)
      end
 
-    def new;end
+    def new
+    end
 
     def update
         post.update(post_params)
