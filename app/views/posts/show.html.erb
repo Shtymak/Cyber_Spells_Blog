@@ -56,7 +56,7 @@
     <div >
         <p>
         <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
-        <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Вподобання' : 'Вподобань'%>
+        <%= @post.likes.size %> <%= (@post.likes.size) % 2 == 0 ? 'Вподобання' : 'Вподобань'%>
                 <% if pre_like %>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">

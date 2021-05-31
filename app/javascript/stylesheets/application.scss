@@ -504,3 +504,14 @@ $color_grey_dark: #a2a2a2;
 .checked {
     color: orange;
 }
+.fr{
+  color: #0a9395;
+  text-align: right;
+}
+.size{
+  max-width: 60vh;
+}
+.size2{
+ /* Расстояние между линией и текстом */
+      margin-left:100vh; /* Отступы от края до линии */
+}

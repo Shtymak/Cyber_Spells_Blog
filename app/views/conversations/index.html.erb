@@ -17,7 +17,7 @@
           <div class="card card-size">
             <div class="card-body">
               <a href="<%=conversation_messages_path(conversation)%>" class="btn btn-primary left">Написати</a>
-              <p class="card-text"><%=image_tag recipient.logo, height:50, width: 50, :class=>"rounded-circle"%><i class="card-title right-text"><%=recipient.nickname%></i></p>
+              <p class="card-text"><%=image_tag recipient.logo, height:50, width: 50, :class=>"rounded-circle"%><i class="card-title right-text"><%=link_to recipient.nickname, user_path(recipient)%></i></p>
             </div>
           </div>
           </div>
